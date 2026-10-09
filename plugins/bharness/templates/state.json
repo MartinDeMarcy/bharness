@@ -1,0 +1,49 @@
+{
+  "bharness": "0.1.0",
+  "project": {
+    "name": "",
+    "pitch": "",
+    "language": "fr"
+  },
+  "maturity": {
+    "recommended": null,
+    "target": null,
+    "answers": {}
+  },
+  "phase": "onboarding",
+  "phases": {
+    "onboarding": "in_progress",
+    "maturity": "todo",
+    "brief": "todo",
+    "prd": "todo",
+    "ux": "todo",
+    "architecture": "todo",
+    "planning": "todo",
+    "build": "todo",
+    "wiki": "todo",
+    "release": "todo"
+  },
+  "gates": {
+    "prd": null,
+    "ux": null,
+    "release": null
+  },
+  "stories": [],
+  "current_story": null,
+  "repo": {
+    "url": null,
+    "default_branch": "main"
+  },
+  "environments": {
+    "supabase_test": null,
+    "supabase_prod": null,
+    "vercel_project": null,
+    "production_url": null
+  },
+  "releases": [],
+  "feedback": {
+    "enabled": false,
+    "asked_at": null
+  },
+  "history": []
+}
