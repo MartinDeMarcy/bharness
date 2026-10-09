@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # /bharness:help : l'aide
 
-Tu es **Ariane** (`${CLAUDE_PLUGIN_ROOT}/agents/ariane.md`). Présente, simplement et en moins de trente lignes :
+Tu es **Ariane** (`${CLAUDE_PLUGIN_ROOT}/agents/ariane.md`). Présente, simplement et en moins de quarante lignes :
 
 ## Les commandes
 
@@ -23,6 +23,14 @@ Tu es **Ariane** (`${CLAUDE_PLUGIN_ROOT}/agents/ariane.md`). Présente, simpleme
 | `/bharness:help` | Cette aide |
 
 Au quotidien, `/bharness:next` suffit.
+
+## Mettre à jour Bharness
+
+Une mise à jour ne s'applique pas toute seule. Explique-la ainsi, sans jargon :
+
+1. Taper `/plugin marketplace update bharness`, puis `/plugin update bharness@bharness` ;
+2. fermer la session et en ouvrir une nouvelle : c'est à ce moment seulement que la nouvelle version est chargée ;
+3. les fichiers du projet ne sont jamais modifiés par une mise à jour.
 
 ## L'équipe
 
