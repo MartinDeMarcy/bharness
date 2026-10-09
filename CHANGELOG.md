@@ -2,6 +2,17 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.5.0] – 2026-10-09
+
+### Ajouté
+
+- Menu des maquettes : Iris crée `docs/maquettes/index.html` (modèle `templates/docs/maquette-index.html`), une carte par écran regroupées par parcours, et un lien « ← Menu » sur chaque écran.
+- Ariane propose un bouton « Ouvrir les maquettes dans Chrome » qui ouvre ce menu (ou « Les voir dans l'application »). `scripts/open-file.mjs` accepte `--chrome` (Windows, macOS, Linux) et retombe sur le navigateur par défaut si Chrome est absent.
+
+### Modifié
+
+- Un seul bouton pour toutes les maquettes, au lieu d'un par écran.
+
 ## [0.4.0] – 2026-10-09
 
 ### Ajouté
