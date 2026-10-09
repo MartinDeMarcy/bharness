@@ -4,7 +4,7 @@
 
 Bharness est un plugin pour [Claude Code](https://code.claude.com). Il s'adresse aux personnes qui ont un projet d'application web, l'envie de le mener, mais pas de formation de développeur. Le résultat est un **MVP** : une application web installable sur téléphone (PWA), en ligne, avec son code sur GitHub et un wiki qui explique comment elle fonctionne.
 
-> Statut : version 0.2.1, en cours de construction et de premiers tests.
+> Statut : version 0.2.2, en cours de construction et de premiers tests.
 
 ## Comment ça marche
 
@@ -64,14 +64,16 @@ Puis lance :
 
 ## Mettre à jour Bharness
 
-Bharness évolue vite. Une mise à jour ne s'applique pas toute seule : il faut rafraîchir la marketplace, mettre à jour le plugin, puis **redémarrer**.
+Bharness s'améliore régulièrement, et Claude Code ne récupère pas les nouveautés tout seul. Pour en profiter, tape ces deux lignes dans Claude Code, l'une après l'autre :
 
 ```text
 /plugin marketplace update bharness
 /plugin update bharness@bharness
 ```
 
-Ferme ensuite la session et ouvre-en une nouvelle (le plugin n'est rechargé qu'au démarrage). `/plugin` ouvre aussi la liste des plugins installés, avec leur version. Si Ariane se comporte comme dans une version précédente, c'est presque toujours que cette mise à jour n'a pas été faite : le dossier de ton projet, lui, n'est jamais modifié par une mise à jour.
+Puis ferme ta session et rouvres-en une : c'est au démarrage que la nouvelle version est chargée. Ton projet n'est pas touché, tu retrouves tout comme tu l'avais laissé.
+
+Si Ariane se comporte encore comme avant, c'est que la mise à jour n'est pas passée : recommence les deux lignes, puis redémarre.
 
 ## Les commandes
 

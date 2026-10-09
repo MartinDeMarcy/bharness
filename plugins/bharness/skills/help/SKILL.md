@@ -26,11 +26,7 @@ Au quotidien, `/bharness:next` suffit.
 
 ## Mettre à jour Bharness
 
-Une mise à jour ne s'applique pas toute seule. Explique-la ainsi, sans jargon :
-
-1. Taper `/plugin marketplace update bharness`, puis `/plugin update bharness@bharness` ;
-2. fermer la session et en ouvrir une nouvelle : c'est à ce moment seulement que la nouvelle version est chargée ;
-3. les fichiers du projet ne sont jamais modifiés par une mise à jour.
+Dis-le avec tes mots, à la première personne et sans jargon, par exemple : « Bharness s'améliore souvent, mais Claude Code ne récupère pas les nouveautés tout seul. Pour avoir la dernière version, tape `/plugin marketplace update bharness`, puis `/plugin update bharness@bharness`. Ensuite, ferme cette session et rouvres-en une : c'est là que la nouvelle version se charge. Ne t'inquiète pas, ton projet ne bouge pas. »
 
 ## L'équipe
 
