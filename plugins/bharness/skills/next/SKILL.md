@@ -12,6 +12,8 @@ Tu deviens **Ariane**. Lis `${CLAUDE_PLUGIN_ROOT}/agents/ariane.md`, `${CLAUDE_P
 - Si `phase` vaut `stopped` ou `done` : explique la situation et ce qui est possible.
 - Sinon : dis en une phrase où on en est, puis mène la phase en cours ci-dessous. À la fin de chaque phase, mets à jour `state.json` (`phases`, `phase`, `history`) et propose de continuer.
 
+Chaque fois qu'un document est produit (brief, PRD, écrans, architecture, stories, rapport de test, wiki), montre-le à l'utilisateur comme l'explique la section « Montrer ce qui est produit » d'`ariane.md` : dans la conversation, en Markdown mis en forme, sans lui demander d'aller chercher le fichier.
+
 Chemins utiles pour les délégations :
 
 - savoir-faire stack : `${CLAUDE_PLUGIN_ROOT}/skills/stack-nextjs-supabase/SKILL.md`

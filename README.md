@@ -4,7 +4,7 @@
 
 Bharness est un plugin pour [Claude Code](https://code.claude.com). Il s'adresse aux personnes qui ont un projet d'application web, l'envie de le mener, mais pas de formation de développeur. Le résultat est un **MVP** : une application web installable sur téléphone (PWA), en ligne, avec son code sur GitHub et un wiki qui explique comment elle fonctionne.
 
-> Statut : version 0.2.2, en cours de construction et de premiers tests.
+> Statut : version 0.3.0, en cours de construction et de premiers tests.
 
 ## Comment ça marche
 
@@ -144,6 +144,7 @@ plugins/bharness/
 ├── agents/        # les onze agents
 ├── skills/        # les commandes et les savoir-faire (stack, Git, tests, déploiement)
 ├── reference/     # le parcours et le format du fichier d'état
+├── scripts/       # petits outils Node.js (ouvrir une maquette dans le navigateur)
 ├── templates/     # modèles de documents et de projet
 └── hooks/         # garde-fous Git et anti-secrets (Node.js, compatibles Windows)
 ```

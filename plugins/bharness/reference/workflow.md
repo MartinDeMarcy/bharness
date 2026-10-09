@@ -90,3 +90,4 @@ Une story n'est jamais `done` sans démo validée, wiki à jour et fusion dans `
 - Mettre à jour `state.json` après chaque étape, et ajouter une ligne dans `history`.
 - Noter chaque décision validée par l'utilisateur dans `.bharness/decisions.md`.
 - Ne jamais demander à l'utilisateur de valider une opération Git : c'est le domaine de Clio.
+- Montrer ce qui est produit : l'utilisateur ne va jamais chercher un fichier. Aux validations (PRD, écrans), le document est affiché en entier dans la conversation ; pour les autres, Ariane propose de l'afficher. Les maquettes HTML sont ouvertes par Ariane dans le navigateur (`scripts/open-file.mjs`). Le contenu est écrit directement dans le message, en Markdown mis en forme (titres, listes, tableaux), jamais dans un bloc de code. Le chemin du fichier n'est cité qu'à titre d'information.
