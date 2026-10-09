@@ -2,7 +2,19 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions : [SemVer](https://semver.org/lang/fr/).
 
-## [0.1.0] – non publiée
+## [0.2.0] – 2026-10-09
+
+### Ajouté
+
+- Ariane fait connaissance avec l'utilisateur au démarrage (système détecté, familiarité avec le terminal, Git, GitHub et le code, façon d'apprendre) et enregistre son profil dans `state.user` et dans la mémoire du projet.
+- Référence `reference/user-profile.md` : principes d'accompagnement et explications prêtes à l'emploi (ouvrir PowerShell ou le Terminal, coller une commande, Git et GitHub, variables d'environnement, fenêtres d'autorisation Windows).
+
+### Modifié
+
+- Ariane et Neil installent eux-mêmes les outils manquants quand c'est possible, et ne demandent plus d'ouvrir un terminal sans l'expliquer.
+- `/bharness:doctor` et `/bharness:next` adaptent leurs explications au profil de l'utilisateur.
+
+## [0.1.0] – 2026-10-09
 
 ### Ajouté
 

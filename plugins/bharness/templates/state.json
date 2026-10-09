@@ -1,9 +1,17 @@
 {
-  "bharness": "0.1.0",
+  "bharness": "0.2.0",
   "project": {
     "name": "",
     "pitch": "",
     "language": "fr"
+  },
+  "user": {
+    "os": null,
+    "terminal": null,
+    "git": null,
+    "github_account": null,
+    "coding": null,
+    "learning": null
   },
   "maturity": {
     "recommended": null,

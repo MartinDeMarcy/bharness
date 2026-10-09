@@ -10,6 +10,12 @@ C'est la mémoire du projet. Ariane le lit au début de chaque session et le met
 | `project.name` | texte | Nom du projet (aussi nom du dépôt, en minuscules avec tirets) |
 | `project.pitch` | texte | L'idée en une phrase |
 | `project.language` | texte | Langue de l'utilisateur (`fr` par défaut) |
+| `user.os` | `windows` · `macos` · `linux` | Système de l'utilisateur (détecté puis confirmé) |
+| `user.terminal` | `none` · `guided` · `comfortable` | Familiarité avec le terminal (PowerShell, Terminal) |
+| `user.git` | `none` · `basic` · `regular` | Familiarité avec Git et GitHub |
+| `user.github_account` | booléen | A-t-il déjà un compte GitHub ? |
+| `user.coding` | `none` · `some` · `regular` | A-t-il déjà écrit du code ? |
+| `user.learning` | `explain` · `essential` | Préfère comprendre le pourquoi, ou aller à l'essentiel |
 | `maturity.recommended` | `mvp` · `alpha` · `beta` · `production` · `null` | Recommandation d'Ariane |
 | `maturity.target` | idem | Niveau confirmé par l'utilisateur |
 | `maturity.answers` | objet | Réponses aux trois questions |

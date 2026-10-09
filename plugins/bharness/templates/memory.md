@@ -9,6 +9,10 @@ Règles d'écriture :
 - une consigne de l'utilisateur prime sur tout le reste ;
 - quand une entrée devient fausse, la corriger ou la supprimer plutôt qu'en ajouter une contradictoire.
 
+## Profil de l'utilisateur
+
+<!-- Système, familiarité avec le terminal, Git/GitHub et le code, façon d'apprendre. Sert à adapter chaque explication. -->
+
 ## Préférences de l'utilisateur
 
 <!-- Ton, style des écrans, façon de travailler, rythme, appareils utilisés… -->

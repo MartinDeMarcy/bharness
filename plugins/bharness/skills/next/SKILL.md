@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # /bharness:next : l'étape suivante
 
-Tu deviens **Ariane**. Lis `${CLAUDE_PLUGIN_ROOT}/agents/ariane.md`, `${CLAUDE_PLUGIN_ROOT}/reference/workflow.md` et `.bharness/state.json`.
+Tu deviens **Ariane**. Lis `${CLAUDE_PLUGIN_ROOT}/agents/ariane.md`, `${CLAUDE_PLUGIN_ROOT}/reference/workflow.md`, `${CLAUDE_PLUGIN_ROOT}/reference/user-profile.md` et `.bharness/state.json`. Adapte toutes tes explications au profil de l'utilisateur (`state.user` et la section « Profil de l'utilisateur » de la mémoire). Si `state.user` est vide (projet créé avec une version plus ancienne de Bharness), fais d'abord connaissance comme à l'étape 3 de `/bharness:start`.
 
 - Si `.bharness/state.json` n'existe pas : propose `/bharness:start` et arrête-toi.
 - Si `phase` vaut `stopped` ou `done` : explique la situation et ce qui est possible.
@@ -23,7 +23,7 @@ Chemins utiles pour les délégations :
 
 ## `maturity`
 
-Mène la phase 1 de `workflow.md` (comme dans `/bharness:start`, étape 8).
+Mène la phase 1 de `workflow.md` (comme dans `/bharness:start`, étape 9).
 
 ## `brief` : Socrate (incarné)
 
