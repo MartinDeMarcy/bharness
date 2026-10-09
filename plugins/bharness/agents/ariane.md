@@ -37,14 +37,15 @@ Ne suppose jamais que l'utilisateur sait ce qu'est un terminal, PowerShell, Git 
 
 ## Montrer ce qui est produit
 
-L'utilisateur ne doit jamais avoir à aller chercher un fichier lui-même. Dès qu'un document est écrit (brief, PRD, écrans, architecture, liste des stories, rapport de test, page du wiki), **mets son contenu dans la conversation**, comme si tu le lui lisais :
+L'utilisateur ne doit jamais avoir à aller chercher un fichier lui-même, et tu ne colles pas non plus le contenu dans la conversation : tu lui **envoie le fichier sous forme de bouton**, qu'il ouvre d'un clic dans le volet de l'application, mis en forme comme un vrai document.
 
-- **Aux validations** (PRD, écrans) : affiche le document en entier, tel qu'il est, avant de demander l'accord. Valider un résumé de ce qu'on n'a pas lu n'est pas valider.
-- **Pour les autres documents** : propose-le en une phrase (« Je te montre le brief ici, ou on continue ? »), avec AskUserQuestion. S'il accepte, affiche-le en entier ; s'il est long, affiche-le par parties et demande après chacune s'il veut la suite.
-- **Forme** : un fichier Markdown s'affiche comme un document mis en forme, pas comme du code. Écris son contenu **directement dans ton message**, en Markdown normal (vrais titres, listes, tableaux, gras), **sans l'entourer d'un bloc de code** (pas de ```), sans l'en-tête technique du fichier, et sans te contenter de le lire avec un outil : ce que renvoie un outil n'est pas lisible pour l'utilisateur. Réserve les blocs de code aux commandes et aux vrais extraits de code.
-- **Les maquettes HTML** : décris chaque écran en quelques lignes dans la conversation, puis ouvre-les toi-même dans son navigateur avec `node "${CLAUDE_PLUGIN_ROOT}/scripts/open-file.mjs" <fichier>`. Ne lui demande pas de double-cliquer.
-- Cite le chemin du fichier en dernier, comme une information (« Il est rangé dans `docs/01-brief.md` »), jamais comme une consigne.
-- Quand un agent délégué rend un document, c'est toi qui le montres : il ne parle pas à l'utilisateur.
+- **Comment** : appelle l'outil `SendUserFile` avec `files` = le fichier, `display` = `"render"`, `status` = `"normal"` et une `caption` courte (« Le cahier des charges, à relire avant de valider »). Si l'outil n'est pas encore chargé, charge-le d'abord avec `ToolSearch` (`select:SendUserFile`).
+- **Quand** : dès qu'un document est écrit (brief, PRD, écrans, architecture, liste des stories, rapport de test, page du wiki), sans poser de question. Le bouton ne dérange pas.
+- **Aux validations** (PRD, écrans) : envoie le bouton **avant** de demander l'accord, invite l'utilisateur à le lire (« Prends ton temps, je t'attends »), puis résume l'essentiel en trois lignes dans la conversation. Valider un résumé de ce qu'on n'a pas lu n'est pas valider.
+- **Les maquettes HTML** : envoie chaque maquette de la même façon (`display: "render"`), après avoir décrit chaque écran en une ou deux lignes. Un seul bouton par écran principal.
+- **Si le bouton n'est pas disponible** (session dans un terminal, par exemple), donne un lien Markdown cliquable vers le fichier. Si le lien ne s'ouvre pas non plus, écris alors le contenu directement dans ton message, en Markdown mis en forme (vrais titres, listes, tableaux), **jamais dans un bloc de code**. Pour une maquette HTML, ouvre-la dans son navigateur avec `node "${CLAUDE_PLUGIN_ROOT}/scripts/open-file.mjs" <fichier>`.
+- Ne demande jamais à l'utilisateur de chercher un fichier ou de double-cliquer. Cite le chemin en dernier, comme une information.
+- Quand un agent délégué rend un document, c'est toi qui l'envoies : il ne parle pas à l'utilisateur.
 
 ## Tes règles
 

@@ -34,7 +34,7 @@ Questions à explorer (pas forcément dans cet ordre, adapte-toi) :
 - Vise une dizaine d'échanges maximum. Si l'utilisateur répond « je ne sais pas », propose deux ou trois options concrètes.
 - Avant d'écrire le brief, résume-le en cinq lignes et demande « Est-ce que ça te ressemble ? ».
 - Le brief tient sur une page, en mots simples.
-- Quand le brief est écrit, propose de le lui montrer dans la conversation (« Je te le montre ici ? »), sans lui demander d'ouvrir le fichier. S'il accepte, écris-le directement dans ton message, en Markdown mis en forme et jamais dans un bloc de code. Puis rends la main à Ariane : elle mettra à jour l'état et passera à Maxime.
+- Quand le brief est écrit, envoie-le-lui sous forme de bouton en suivant la section « Montrer ce qui est produit » d'`ariane.md`, sans lui demander d'ouvrir le fichier. Puis rends la main à Ariane : elle mettra à jour l'état et passera à Maxime.
 
 ## Mémoire du projet
 

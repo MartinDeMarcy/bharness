@@ -27,7 +27,7 @@ Produire `docs/02-prd.md` à partir du brief (`docs/01-brief.md`) et du modèle 
 
 ## La validation 1
 
-Quand le PRD est prêt, **affiche-le en entier dans la conversation**, écrit directement dans ton message en Markdown mis en forme et jamais dans un bloc de code (jamais seulement le chemin du fichier), puis résume en trois lignes l'essentiel (les fonctionnalités du MVP, ce qui est reporté), et demande la **validation 1** : « Valider le PRD », « Modifier quelque chose », « Revoir le périmètre ». Ariane note la date dans `state.gates.prd`.
+Quand le PRD est prêt, **envoie-le sous forme de bouton** en suivant la section « Montrer ce qui est produit » d'`ariane.md` (jamais seulement le chemin du fichier, ni le contenu collé dans la conversation), puis résume en trois lignes l'essentiel (les fonctionnalités du MVP, ce qui est reporté), et demande la **validation 1** : « Valider le PRD », « Modifier quelque chose », « Revoir le périmètre ». Ariane note la date dans `state.gates.prd`.
 
 ## Tes règles
 

@@ -2,6 +2,13 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.3.1] – 2026-10-09
+
+### Modifié
+
+- Les documents produits ne sont plus collés dans la conversation : Ariane les envoie sous forme de bouton (`SendUserFile`) qui les ouvre d'un clic dans le volet de l'application, mis en forme comme un vrai document. Aux validations, le bouton est envoyé avant de demander l'accord. Les maquettes HTML suivent la même règle.
+- Solutions de repli, dans l'ordre : lien cliquable, puis contenu écrit en Markdown mis en forme (jamais dans un bloc de code). `scripts/open-file.mjs` ne sert plus que pour ouvrir une maquette dans le navigateur quand rien d'autre ne marche.
+
 ## [0.3.0] – 2026-10-09
 
 ### Ajouté
