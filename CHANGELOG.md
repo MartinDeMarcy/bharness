@@ -2,6 +2,18 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.4.0] – 2026-10-09
+
+### Ajouté
+
+- Vérification automatique des mises à jour : au début de `/bharness:next`, Ariane regarde (au plus une fois par jour) s'il existe une nouvelle version et propose de l'installer maintenant ou plus tard (`scripts/check-update.mjs`). Seule la lecture d'un fichier public sur GitHub est faite ; hors ligne, elle se tait.
+- Mise à jour faite par Ariane (`scripts/update-plugin.mjs`) : le script retrouve le programme `claude`, y compris dans l'application de bureau Windows où il n'est pas dans le PATH, puis rafraîchit la marketplace et met à jour le plugin.
+- Ariane lance aussi le contrôle à la demande de l'utilisateur.
+
+### Modifié
+
+- README et `/bharness:help` : l'explication de la mise à jour décrit le comportement automatique. Les commandes `/plugin …` tapées dans la conversation, qui ne signalaient pas la mise à jour, ne sont plus présentées comme la méthode normale.
+
 ## [0.3.1] – 2026-10-09
 
 ### Modifié

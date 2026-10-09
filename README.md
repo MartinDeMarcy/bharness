@@ -4,7 +4,7 @@
 
 Bharness est un plugin pour [Claude Code](https://code.claude.com). Il s'adresse aux personnes qui ont un projet d'application web, l'envie de le mener, mais pas de formation de développeur. Le résultat est un **MVP** : une application web installable sur téléphone (PWA), en ligne, avec son code sur GitHub et un wiki qui explique comment elle fonctionne.
 
-> Statut : version 0.3.1, en cours de construction et de premiers tests.
+> Statut : version 0.4.0, en cours de construction et de premiers tests.
 
 ## Comment ça marche
 
@@ -64,16 +64,16 @@ Puis lance :
 
 ## Mettre à jour Bharness
 
-Bharness s'améliore régulièrement, et Claude Code ne récupère pas les nouveautés tout seul. Pour en profiter, tape ces deux lignes dans Claude Code, l'une après l'autre :
+Bharness s'améliore régulièrement, et Claude Code ne prévient pas quand une nouvelle version sort. C'est donc Ariane qui s'en charge : quand tu lances `/bharness:next`, elle vérifie (au plus une fois par jour) s'il y a du nouveau. Si c'est le cas, elle te le dit et te propose de mettre à jour tout de suite ou plus tard. Si tu acceptes, elle installe la nouvelle version, puis tu fermes ta session et tu en rouvres une : c'est au démarrage que la nouvelle version est chargée. Ton projet n'est pas touché, tu retrouves tout comme tu l'avais laissé.
 
-```text
-/plugin marketplace update bharness
-/plugin update bharness@bharness
+Pour demander toi-même, dis simplement à Ariane : « Y a-t-il une mise à jour ? »
+
+À la main, au cas où : dans l'application de bureau, bouton **+** à côté de la zone de saisie, puis **Plugins** ; ou, dans un terminal :
+
+```bash
+claude plugin marketplace update bharness
+claude plugin update bharness@bharness
 ```
-
-Puis ferme ta session et rouvres-en une : c'est au démarrage que la nouvelle version est chargée. Ton projet n'est pas touché, tu retrouves tout comme tu l'avais laissé.
-
-Si Ariane se comporte encore comme avant, c'est que la mise à jour n'est pas passée : recommence les deux lignes, puis redémarre.
 
 ## Les commandes
 
@@ -125,6 +125,8 @@ Bharness installe des garde-fous actifs uniquement dans les projets Bharness :
 
 ## Vie privée
 
+La recherche de mise à jour lit seulement un petit fichier public sur GitHub (le numéro de la dernière version). Rien de ton projet ni de toi n'est envoyé, et si tu es hors ligne, elle se tait.
+
 Le journal de retours d'expérience n'est tenu qu'avec ton accord, reste sur ton ordinateur, n'est pas versionné, et rien n'est envoyé automatiquement. `/bharness:feedback` produit un compte rendu que tu choisis, ou non, de partager.
 
 ## Développer Bharness
@@ -144,7 +146,7 @@ plugins/bharness/
 ├── agents/        # les onze agents
 ├── skills/        # les commandes et les savoir-faire (stack, Git, tests, déploiement)
 ├── reference/     # le parcours et le format du fichier d'état
-├── scripts/       # petits outils Node.js (ouvrir une maquette dans le navigateur)
+├── scripts/       # petits outils Node.js (vérifier et installer les mises à jour, ouvrir une maquette)
 ├── templates/     # modèles de documents et de projet
 └── hooks/         # garde-fous Git et anti-secrets (Node.js, compatibles Windows)
 ```

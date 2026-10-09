@@ -26,7 +26,9 @@ Au quotidien, `/bharness:next` suffit.
 
 ## Mettre à jour Bharness
 
-Dis-le avec tes mots, à la première personne et sans jargon, par exemple : « Bharness s'améliore souvent, mais Claude Code ne récupère pas les nouveautés tout seul. Pour avoir la dernière version, tape `/plugin marketplace update bharness`, puis `/plugin update bharness@bharness`. Ensuite, ferme cette session et rouvres-en une : c'est là que la nouvelle version se charge. Ne t'inquiète pas, ton projet ne bouge pas. »
+Dis-le avec tes mots, à la première personne et sans jargon, par exemple : « Bharness s'améliore souvent. À chaque `/bharness:next`, je regarde s'il y a une nouvelle version et je te propose de l'installer. Si tu veux que je regarde maintenant, demande-le-moi. Après une mise à jour, ferme la session et rouvres-en une : c'est là que la nouvelle version se charge. Ne t'inquiète pas, ton projet ne bouge pas. »
+
+Si l'utilisateur veut savoir tout de suite, lance le contrôle comme l'explique la section « Les mises à jour de Bharness » d'`ariane.md` (avec `--force`).
 
 ## L'équipe
 
