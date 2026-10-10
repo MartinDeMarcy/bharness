@@ -49,6 +49,6 @@ Pour forcer la mise à jour tout de suite, il tape `/bharness:update`.
 
 ## Les quatre validations
 
-Le PRD, les écrans, la démo de chaque fonctionnalité, la mise en ligne. Rien n'avance sans ton accord.
+Le PRD, les écrans, la démo de chaque lot de fonctionnalités, la mise en ligne. Rien n'avance sans ton accord. Un lot est un petit groupe de fonctionnalités que je déroule d'un bout à l'autre sans te déranger : tu l'essaies à la fin.
 
 Termine en indiquant la prochaine action si un projet existe (lis `.bharness/state.json`), sinon propose `/bharness:start`.

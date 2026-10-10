@@ -13,7 +13,8 @@ Clio est seule responsable du dépôt. L'utilisateur ne valide aucune opération
 | Branche | Rôle | Règle |
 |---|---|---|
 | `main` | Branche finale, toujours stable | Ne reçoit que des pull requests à CI verte |
-| `feature/NNN-slug` | Une par story | Créée depuis `main` à jour, fusionnée par pull request après la démo validée |
+| `lot/NN-slug` | Une par lot de stories | Créée depuis `main` à jour au lancement du lot ; reçoit les stories ; fusionnée dans `main` par pull request **seulement après la démo du lot validée** |
+| `feature/NNN-slug` | Une par story | Créée depuis la branche de son lot à jour, fusionnée dans cette branche par pull request à CI verte, sans démo |
 | `docs/<sujet>` | Mises à jour du wiki hors story | Même règle qu'une feature |
 | `release/x.y.z` | Une par mise en production | Créée depuis `main`, figée, étiquetée `vx.y.z` |
 | `hotfix/x.y.z` | Correction urgente en production | Créée depuis la release, fusionnée dans `main` ensuite |
@@ -48,10 +49,20 @@ Puis :
    Sur un dépôt privé avec l'offre gratuite de GitHub, la protection peut être refusée : ce n'est pas bloquant, tu appliques la règle toi-même. Note-le dans ton compte rendu.
 3. Renseigne `repo.url` dans `.bharness/state.json`.
 
-## Début d'une story
+## Début d'un lot
 
 ```bash
 git switch main && git pull --ff-only
+git switch -c lot/NN-slug
+git push -u origin lot/NN-slug
+```
+
+Note la branche dans `lots[].branch` (`state.json`). Vercel crée l'environnement de test de la branche du lot dès ce premier envoi.
+
+## Début d'une story
+
+```bash
+git switch lot/NN-slug && git pull --ff-only
 git switch -c feature/NNN-slug
 ```
 
@@ -67,19 +78,33 @@ git switch -c feature/NNN-slug
    Corps du message : une ligne qui renvoie à la story (`Story: docs/stories/NNN-slug.md`).
 3. `git push -u origin feature/NNN-slug`
 
-## Fin d'une story (après la démo validée et le wiki de Diderot)
+## Fin d'une story (après les tests de Thomas et le wiki de Diderot ; aucune démo)
 
 ```bash
-gh pr create --base main --head feature/NNN-slug \
+gh pr create --base lot/NN-slug --head feature/NNN-slug \
   --title "feat: <titre de la story> (NNN)" --body-file <fichier rempli depuis .github/pull_request_template.md>
 gh pr checks <numéro> --watch          # attendre la CI
+gh pr merge <numéro> --merge --delete-branch
+git switch lot/NN-slug && git pull --ff-only
+```
+
+Fusion par **commit de fusion** (`--merge`) : l'historique de la story est conservé tel quel. Note la pull request dans `stories[].pull_request` et passe la story à `in_lot`.
+
+Si la CI échoue : ne fusionne pas. Lis le journal (`gh run view --log-failed`), résume la cause à Ariane : la correction revient à Ada.
+
+## Fin d'un lot (après la démo du lot validée par l'utilisateur)
+
+Uniquement quand Ariane te confirme que l'utilisateur a validé le lot :
+
+```bash
+gh pr create --base main --head lot/NN-slug \
+  --title "feat: <titre du lot> (lot NN)" --body-file <fichier rempli : liste des stories, rapport docs/qa/lot-NN-rapport.md, date de la validation>
+gh pr checks <numéro> --watch
 gh pr merge <numéro> --merge --delete-branch
 git switch main && git pull --ff-only
 ```
 
-Fusion par **commit de fusion** (`--merge`) : l'historique de la story est conservé tel quel. Note la pull request dans `stories[].pull_request`.
-
-Si la CI échoue : ne fusionne pas. Lis le journal (`gh run view --log-failed`), résume la cause à Ariane : la correction revient à Ada.
+Note la pull request dans `lots[].pull_request`. Si la CI échoue : ne fusionne pas, la correction revient à Ada sur une story de correction du lot.
 
 ## Mise en production
 

@@ -1,10 +1,10 @@
-# Rapport de test : story {{NNN}}
+# Rapport de test : story {{NNN}} ou lot {{NN}}
 
 > Par Thomas le {{date}}. Environnement de test : {{preview_url}}
 
 ## Verdict
 
-Prête pour la démo / À corriger
+Prête pour la démo (lot) / Fusionnable dans le lot (story) / À corriger
 
 ## Critères d'acceptation
 
@@ -24,6 +24,6 @@ Prête pour la démo / À corriger
 
 ## Captures
 
-`docs/qa/captures/{{NNN}}/`
+`docs/qa/captures/{{NNN}}/` (ou `lot-{{NN}}/`)
 
 ## À corriger (si besoin)

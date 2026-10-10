@@ -1,7 +1,8 @@
 # Story {{NNN}} : {{titre}}
 
 - **Statut** : à faire
-- **Branche** : `feature/{{NNN}}-{{slug}}`
+- **Lot** : {{NN}}
+- **Branche** : `feature/{{NNN}}-{{slug}}` (créée depuis la branche du lot)
 - **Fonctionnalité du PRD** : {{F?}}
 
 ## En tant que…

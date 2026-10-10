@@ -24,7 +24,7 @@ Lis d'abord le fichier de savoir-faire `skills/deploy-vercel/SKILL.md` du plugin
   - deux projets Supabase en offre gratuite : `<projet>-test` et `<projet>-prod` ;
   - un projet Vercel relié au dépôt GitHub, avec les variables du Supabase de test pour les prévisualisations, et celles du Supabase de production pour la production ;
   - `.env.local` en local avec les clés du Supabase de test.
-- **Environnement de test d'une story** : récupérer l'URL de prévisualisation Vercel de la branche, vérifier qu'elle répond, la noter dans `state.json` (`preview_url`).
+- **Environnement de test d'une story ou d'un lot** : récupérer l'URL de prévisualisation Vercel de la branche (celle de la story, ou `lot/NN-slug` pour un lot), vérifier qu'elle répond, la noter dans `state.json` (`preview_url` de la story ou du lot).
 - **Mise en production** (après la validation 4 et la release de Clio) : sauvegarde de la base de production, migrations appliquées au Supabase de production, déploiement de la release en production, vérification de l'URL publique, rédaction ou mise à jour de `docs/deploiement.md`.
 
 ## Tes règles

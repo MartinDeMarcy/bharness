@@ -2,6 +2,22 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.8.0] – 2026-10-10
+
+### Ajouté
+
+- Les lots : Poucet regroupe les stories en lots de deux à cinq stories qui, ensemble, donnent quelque chose que l'utilisateur peut essayer, chacun avec son but et son scénario de démo. Ariane les présente et l'utilisateur peut demander de regrouper autrement.
+- Lancer un lot : avec `/bharness:next`, Ariane lance un lot complet. Chaque story suit toujours le même cycle (Clio, Ada, Thomas en local, Clio, Neil, Thomas en ligne, Diderot, Clio), sans validation humaine entre les stories.
+- Une branche par lot, `lot/NN-slug`, qui reçoit les stories par pull request à CI verte. `main` ne reçoit le lot entier qu'après la validation de l'utilisateur.
+- Fin de lot : Thomas teste le lot entier et joue le scénario de démo (`docs/qa/lot-NN-rapport.md`), puis Ariane fait la démo avec l'URL de test et le QR code. Refusée, la démo donne des stories de correction dans le même lot.
+- Blocages : le lot s'arrête et Ariane prévient l'utilisateur (trois allers-retours Thomas/Ada sans succès, CI rouge après deux corrections, conflit, environnement de test muet, décision à prendre). L'état est enregistré, `/bharness:next` reprend là où le lot s'est arrêté.
+- Les projets créés avant les lots sont migrés : un lot par story non terminée.
+
+### Modifié
+
+- La validation 3 porte sur la démo de chaque lot, plus sur celle de chaque story. Statuts des stories : `todo`, `in_progress`, `local_ok`, `on_test`, `in_lot`, `done` (le statut `demo` passe au niveau du lot).
+- La CI s'exécute aussi sur les pull requests vers les branches `lot/**`. `/bharness:status`, `/bharness:back` et `/bharness:help` parlent de lots.
+
 ## [0.7.0] – 2026-10-10
 
 ### Ajouté

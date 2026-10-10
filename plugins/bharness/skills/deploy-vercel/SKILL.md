@@ -36,7 +36,7 @@ L'utilisateur fait lui-même les actions qui demandent un compte ; guide-le une 
      }
    }
    ```
-   Les branches `feature/*` restent déployées en prévisualisation ; la production ne part que depuis une release, à la main.
+   Les branches `feature/*` et `lot/*` restent déployées en prévisualisation ; la production ne part que depuis une release, à la main.
 7. **Auth Supabase** : dans chaque projet Supabase (Authentication → URL Configuration), ajoute les URL autorisées : `http://localhost:3000`, le motif des prévisualisations Vercel (projet test) et l'URL de production (projet production).
 
 ## L'environnement de test d'une branche
@@ -44,11 +44,11 @@ L'utilisateur fait lui-même les actions qui demandent un compte ; guide-le une 
 Après le push de Clio, Vercel déploie la branche et publie le résultat sur GitHub. Récupère l'URL :
 
 ```bash
-gh api "repos/<owner>/<repo>/deployments?ref=feature/NNN-slug&per_page=1" --jq '.[0].id'
+gh api "repos/<owner>/<repo>/deployments?ref=<branche>&per_page=1" --jq '.[0].id'
 gh api "repos/<owner>/<repo>/deployments/<id>/statuses" --jq '.[0].environment_url'
 ```
 
-Attends que le statut soit `success` (réessaie toutes les 30 secondes, cinq minutes au plus). Vérifie que l'URL répond (code 200), puis note-la dans `stories[].preview_url`.
+Attends que le statut soit `success` (réessaie toutes les 30 secondes, cinq minutes au plus). Vérifie que l'URL répond (code 200), puis note-la dans `stories[].preview_url` (branche d'une story) ou `lots[].preview_url` (branche `lot/NN-slug`).
 
 ## Mise en production (après la validation 4 et la release de Clio)
 

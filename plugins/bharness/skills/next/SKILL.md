@@ -50,25 +50,49 @@ Lis `${CLAUDE_PLUGIN_ROOT}/agents/iris.md` et deviens Iris, avec `templates/docs
 
 ## `planning` : Poucet (délégué)
 
-Délègue à `bharness:poucet` (documents d'entrée, modèle `templates/docs/story.md`, `reference/state-schema.md`). Montre la liste des stories à l'utilisateur, en mots simples.
+Délègue à `bharness:poucet` (documents d'entrée, modèle `templates/docs/story.md`, `reference/state-schema.md`). Montre ensuite à l'utilisateur les **lots**, en mots simples : pour chacun, son nom, son but en une phrase, ses stories (une ligne chacune) et ce qu'il pourra essayer à la fin. Explique l'idée en deux phrases : « Je te propose de travailler par lots : je déroule un lot complet sans te déranger, et tu essaies le résultat à la fin. » Puis AskUserQuestion : « Ces lots me conviennent » ou « Regrouper autrement » (dans ce cas, demande à Poucet de modifier les lots qui ne sont pas commencés). Note l'accord dans `decisions.md`.
 
-## `build` : la boucle des stories
+## `build` : lancer et dérouler un lot
 
-Prends la première story de `state.stories` dont le statut n'est pas `done`, mets-la dans `current_story`, et reprends la boucle de `workflow.md` (phase 7) **à l'étape qui correspond à son statut** :
+**Projets créés avant les lots** : si `state.lots` est vide alors que `state.stories` n'est pas vide, crée d'abord un lot par story non terminée (voir `reference/state-schema.md`).
+
+Prends le premier lot de `state.lots` dont le statut n'est pas `done` et mets-le dans `current_lot`.
+
+### Lancer le lot
+
+- Lot `todo` : présente-le (nom, but, nombre de stories, ce que l'utilisateur pourra essayer à la fin) et explique : « Je déroule tout le lot toute seule, sans te déranger sauf si je suis bloquée. Tu peux laisser la fenêtre ouverte. À la fin, tu essaies le résultat et tu me dis si c'est bon. » Puis AskUserQuestion : « Lancer le lot » (recommandé), « Revoir le contenu du lot », « Pas maintenant ».
+- Lot `in_progress` (reprise) : dis où on en est (« Le lot 2 est en cours : 2 stories sur 3 sont terminées, je reprends à la suivante ») et reprends sans redemander : l'utilisateur a déjà lancé le lot.
+
+Au lancement : délègue à `bharness:clio` la création de la branche du lot (`lot/NN-slug`), enregistre-la dans `lots[].branch`, passe le lot à `in_progress`.
+
+### Dérouler les stories, sans validation humaine
+
+Pour chaque story du lot, dans l'ordre, jusqu'à ce qu'elles soient toutes `in_lot`, reprends le cycle d'une story de `workflow.md` (phase 7) **à l'étape qui correspond à son statut**, en mettant la story dans `current_story` :
 
 | Statut | Étape suivante |
 |---|---|
-| `todo` | 1. Clio crée la branche, puis 2. Ada développe |
+| `todo` | 1. Clio crée la branche depuis celle du lot, puis 2. Ada développe |
 | `in_progress` | 2. Ada développe (ou corrige, d'après les notes) |
 | `local_ok` | 4. Clio enregistre et pousse, puis 5. Neil vérifie l'environnement de test |
-| `on_test` | 6. Thomas teste sur l'environnement de test |
-| `demo` | 7. Démo et validation 3, puis 8. Diderot, puis 9. Clio fusionne |
+| `on_test` | 6. Thomas teste sur l'environnement de test, 7. Diderot met le wiki à jour, 8. Clio fusionne dans la branche du lot (la story passe à `in_lot`) |
 
-Chaque délégation reçoit : le dossier du projet, l'identifiant et le fichier de la story, l'étape demandée, le chemin du savoir-faire utile. Après chaque délégation : mets à jour le statut de la story, résume en une phrase.
+Chaque délégation reçoit : le dossier du projet, l'identifiant et le fichier de la story, **le lot et sa branche** (c'est la base de la branche de la story et la cible de sa pull request), l'étape demandée, le chemin du savoir-faire utile. Après chaque délégation : mets à jour `state.json` (statut, `history`).
 
-**La démo (validation 3)** : donne l'URL de test (`preview_url`) **et un QR code** pour l'essayer sur téléphone, comme l'explique la section « Le QR code pour le téléphone » d'`ariane.md`. Liste ce que l'utilisateur peut essayer (critères d'acceptation), montre deux ou trois captures de Thomas. Puis AskUserQuestion : « Valider la story », « Demander des corrections » (note les remarques dans la story, statut `in_progress`).
+Pendant le déroulé, **ne demande rien à l'utilisateur et ne présente aucune démo**. Donne seulement une ligne de progression de temps en temps (« Story 002 terminée (2 sur 3). »). Si la session reste ouverte, enchaîne les stories sans t'arrêter.
 
-Enchaîne les stories tant que l'utilisateur le souhaite ; propose une pause entre deux stories. Quand toutes sont `done`, passe `phase` à `wiki`.
+**Blocage** (règles de `workflow.md`, « Les blocages ») : arrête-toi, explique le problème en mots simples, note la raison dans `lots[].notes`, puis AskUserQuestion : « Réessayer », « En parler avec toi » (reformuler la story ou le besoin), « Arrêter le lot pour l'instant ». Le lot reste `in_progress`.
+
+### La fin du lot et la démo (validation 3)
+
+Quand toutes les stories du lot sont `in_lot` :
+
+1. Délègue à `bharness:neil` la vérification de l'environnement de test de la **branche du lot** (note l'URL dans `lots[].preview_url`).
+2. Délègue à `bharness:thomas` le test du lot entier (temps 3 : tests de bout en bout et scénario de démo, rapport `docs/qa/lot-NN-rapport.md`). S'il demande des corrections, fais-les faire par Ada sur une story de correction du lot, puis recommence.
+3. Passe le lot à `demo` et fais la **démo** : donne l'URL de test du lot **et un QR code** pour l'essayer sur téléphone, comme l'explique la section « Le QR code pour le téléphone » d'`ariane.md` ; dis en une ligne ce que chaque story apporte ; donne le scénario de démo (`lots[].demo`) en gestes numérotés ; montre deux ou trois captures de Thomas. Puis AskUserQuestion : « Valider le lot » ou « Demander des corrections ».
+   - **Valider** : date dans `lots[].validated_at` et dans les stories du lot ; délègue à `bharness:clio` la fusion du lot dans `main` (pull request, CI verte) ; stories et lot passent à `done` ; note dans `decisions.md` et `history`.
+   - **Corrections** : note les remarques dans `lots[].notes`, demande à `bharness:poucet` de créer des stories de correction **dans le même lot**, repasse le lot à `in_progress`, déroule ces stories comme ci-dessus (sans redemander le lancement), puis refais la fin de lot.
+
+Propose une pause entre deux lots. Quand tous les lots sont `done`, passe `phase` à `wiki`.
 
 ## `wiki` : Diderot (délégué)
 

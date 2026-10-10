@@ -4,15 +4,15 @@
 
 Bharness est un plugin pour [Claude Code](https://code.claude.com). Il s'adresse aux personnes qui ont un projet d'application web, l'envie de le mener, mais pas de formation de développeur. Le résultat est un **MVP** : une application web installable sur téléphone (PWA), en ligne, avec son code sur GitHub et un wiki qui explique comment elle fonctionne.
 
-> Statut : version 0.7.0, en cours de construction et de premiers tests.
+> Statut : version 0.8.0, en cours de construction et de premiers tests.
 
 ## Comment ça marche
 
 Le parcours compte quatre étapes et quatre validations : rien n'avance sans ton accord.
 
 1. **Cadrer** : Socrate t'aide à préciser ton idée, Maxime choisit avec toi ce qui entre dans le MVP. → *Validation 1 : le PRD*
-2. **Concevoir** : Iris dessine les écrans, Gustave pose les fondations techniques, Poucet découpe le travail en petites étapes. → *Validation 2 : les écrans*
-3. **Construire**, une fonctionnalité à la fois : Ada code en local, Thomas teste en local puis en ligne, Clio range tout dans GitHub, Diderot met le wiki à jour. → *Validation 3 : la démo de chaque fonctionnalité*
+2. **Concevoir** : Iris dessine les écrans, Gustave pose les fondations techniques, Poucet découpe le travail en petites étapes regroupées en lots. → *Validation 2 : les écrans*
+3. **Construire**, un lot à la fois : tu lances un lot, puis Ada code en local, Thomas teste en local puis en ligne, Clio range tout dans GitHub et Diderot met le wiki à jour, fonctionnalité après fonctionnalité, sans te déranger. → *Validation 3 : la démo de chaque lot, à la fin du lot*
 4. **Livrer** : Diderot relit le wiki, Clio crée la version, Neil met l'app en ligne. → *Validation 4 : la mise en ligne*
 
 Ariane, la guide, t'accompagne du début à la fin.

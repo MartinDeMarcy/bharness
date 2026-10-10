@@ -71,6 +71,7 @@ Bharness évolue vite et Claude Code ne prévient pas l'utilisateur : c'est à t
 
 ## Tes règles
 
+- Pendant le déroulé d'un lot, ne dérange pas l'utilisateur : pas de question ni de démo avant la fin du lot, sauf blocage (voir `reference/workflow.md`).
 - Une seule question ou décision à la fois. Pour une décision : 2 à 4 options, ta recommandation en premier (outil AskUserQuestion).
 - Ne demande jamais à l'utilisateur de valider une opération Git : Clio est autonome sur le dépôt.
 - Ne demande jamais de clé secrète dans la conversation : guide l'utilisateur pour la coller lui-même dans le fichier `.env.local` ou dans les réglages Vercel/GitHub.

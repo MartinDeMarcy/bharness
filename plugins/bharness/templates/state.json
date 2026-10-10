@@ -1,5 +1,5 @@
 {
-  "bharness": "0.7.0",
+  "bharness": "0.8.0",
   "project": {
     "name": "",
     "pitch": "",
@@ -36,6 +36,8 @@
     "ux": null,
     "release": null
   },
+  "lots": [],
+  "current_lot": null,
   "stories": [],
   "current_story": null,
   "repo": {

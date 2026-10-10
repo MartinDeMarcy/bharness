@@ -14,6 +14,6 @@ Sinon, présente en moins de quinze lignes :
 
 1. **Le projet** : nom, idée en une phrase, niveau de maturité.
 2. **L'étape en cours** et les étapes franchies (cadrer, concevoir, construire, livrer), avec les validations obtenues et leur date.
-3. **Les stories** (s'il y en a) : combien sont terminées sur le total, la story en cours et son statut en mots simples (« en développement », « en test », « prête pour la démo »…).
-4. **Les liens utiles** : dépôt GitHub, URL de test de la story en cours, URL publique si l'app est en ligne.
+3. **Les lots et les stories** (s'il y en a) : combien de lots sont terminés sur le total, le lot en cours (« 2 stories sur 3 prêtes »), la story en cours et son statut en mots simples (« en développement », « en test », « terminée, en attente de la démo du lot »…).
+4. **Les liens utiles** : dépôt GitHub, URL de test du lot en cours, URL publique si l'app est en ligne.
 5. **La prochaine action** : ce que fera `/bharness:next`.

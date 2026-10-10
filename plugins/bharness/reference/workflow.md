@@ -19,8 +19,8 @@ Un sous-agent délégué ne voit pas la conversation : le message de délégatio
 | 3 | `prd` | Maxime | incarné | `docs/02-prd.md` | **Validation 1 : le PRD** |
 | 4 | `ux` | Iris | incarné | `docs/03-ux.md` + maquettes | **Validation 2 : les écrans** |
 | 5 | `architecture` | Gustave | délégué | `docs/04-architecture.md`, projet Next.js initialisé, Supabase de test relié | — |
-| 6 | `planning` | Poucet | délégué | `docs/stories/NNN-nom.md`, `state.stories` | — |
-| 7 | `build` | Ada, Thomas, Clio, Neil, Diderot | délégué | code, tests, branches, environnements de test, wiki | **Validation 3 : démo de chaque story** |
+| 6 | `planning` | Poucet | délégué | `docs/stories/NNN-nom.md`, `state.stories`, `state.lots` | — |
+| 7 | `build` | Ada, Thomas, Clio, Neil, Diderot | délégué | code, tests, branches, environnements de test, wiki | **Validation 3 : démo de chaque lot** |
 | 8 | `wiki` | Diderot | délégué | `docs/wiki/` relu et complet | — |
 | 9 | `release` | Clio puis Neil | délégué | `release/x.y.z`, étiquette, app en production | **Validation 4 : la mise en ligne** |
 | 10 | `done` | Ariane | incarné | bilan, prochaines étapes | — |
@@ -40,22 +40,59 @@ Elle recommande un niveau (MVP, alpha, bêta, production) et l'explique en une o
 - **MVP** : on continue.
 - **Autre niveau** : Ariane explique que Bharness ne prend en charge que les MVP pour l'instant, propose de viser d'abord un MVP, et si l'utilisateur refuse, met `phase` à `stopped` et s'arrête là.
 
-## Phase 7 : la boucle d'une story
+## Phase 6 : le découpage en lots
 
-Pour chaque story de `state.stories`, dans l'ordre :
+Poucet découpe le PRD en stories, puis les regroupe en **lots**. Un lot réunit deux à cinq stories qui, ensemble, donnent quelque chose que l'utilisateur peut essayer (« je peux m'inscrire et réserver un créneau »). Le premier lot contient le socle et une première fonctionnalité visible. Chaque lot a un **scénario de démo** : trois à cinq gestes que l'utilisateur fera pour l'essayer. Un lot peut ne contenir qu'une story.
 
-1. **Clio** crée la branche `feature/<NNN>-<nom>` depuis `main` (statut `in_progress`).
+Ariane montre les lots à l'utilisateur (nom, but, stories) ; il peut demander de regrouper autrement.
+
+## Phase 7 : la boucle d'un lot
+
+L'utilisateur **lance un lot** (`/bharness:next`). Les agents le déroulent ensuite d'un bout à l'autre, story après story, **sans validation humaine entre les stories**. La seule validation est la démo, à la fin du lot. Pendant le lot, Ariane ne dérange l'utilisateur qu'en cas de blocage.
+
+### Les branches
+
+- `lot/NN-slug` : créée par Clio depuis `main` au lancement du lot ; elle réunit les stories terminées. Vercel lui crée son environnement de test.
+- `feature/NNN-slug` : une par story, créée depuis la branche du lot et fusionnée dans celle-ci par pull request (CI verte).
+- `main` ne reçoit le lot entier, par une pull request, qu'après la validation de l'utilisateur.
+
+### Le cycle d'une story (toujours le même)
+
+Pour chaque story du lot, dans l'ordre :
+
+1. **Clio** crée la branche `feature/<NNN>-<nom>` depuis la branche du lot à jour (statut `in_progress`).
 2. **Ada** développe la story en local, avec ses tests unitaires et fonctionnels. L'app locale est branchée sur le **Supabase de test** (pas de base locale).
 3. **Thomas** vérifie en local : tests unitaires, tests fonctionnels, critères d'acceptation. En cas d'échec, retour à Ada (statut `local_ok` seulement quand tout passe).
 4. **Clio** enregistre le travail en commits normalisés et pousse la branche. La CI GitHub Actions se lance ; Vercel crée l'environnement de test de la branche.
 5. **Neil** récupère l'URL de prévisualisation et vérifie que l'environnement répond (statut `on_test`).
-6. **Thomas** lance les tests de bout en bout sur l'environnement de test et rédige `docs/qa/NNN-rapport.md`.
-7. **Ariane** présente la démo à l'utilisateur : l'URL de test et son QR code (à scanner avec le téléphone), ce qui a été fait, comment l'essayer. **Validation 3** (statut `demo`).
-   - Refusée : les remarques vont dans la story, retour à l'étape 2.
-8. **Diderot** met à jour le wiki sur la même branche.
-9. **Clio** ouvre la pull request et la fusionne dans `main` une fois la CI verte (statut `done`).
+6. **Thomas** lance les tests de bout en bout sur cet environnement et rédige `docs/qa/NNN-rapport.md`.
+7. **Diderot** met à jour le wiki sur la même branche.
+8. **Clio** ouvre la pull request **vers la branche du lot** et la fusionne une fois la CI verte (statut `in_lot`).
 
-Une story n'est jamais `done` sans démo validée, wiki à jour et fusion dans `main`.
+Il n'y a **aucune** démo à l'utilisateur à ce stade. Puis on passe à la story suivante du lot.
+
+### La fin du lot
+
+Quand toutes les stories du lot sont `in_lot` :
+
+1. **Neil** récupère l'URL de prévisualisation de la branche du lot et vérifie qu'elle répond.
+2. **Thomas** lance les tests de bout en bout du lot entier sur cet environnement, joue le scénario de démo et rédige `docs/qa/lot-NN-rapport.md`. S'il trouve un défaut : retour à Ada sur une story de correction du lot, puis on recommence cette étape.
+3. **Ariane** présente la démo : l'URL de test et son QR code, ce qui a été livré (une ligne par story), le scénario à essayer, quelques captures. **Validation 3** (statut du lot `demo`).
+   - Refusée : les remarques deviennent de nouvelles stories de correction **dans le même lot** (Poucet les crée), le lot repasse à `in_progress` et on relance le cycle sur ces stories, puis la fin du lot.
+4. **Clio** ouvre la pull request du lot **vers `main`**, la fusionne une fois la CI verte, et supprime la branche du lot. Les stories et le lot passent à `done`.
+
+Une story n'est jamais `done` sans lot validé, wiki à jour et fusion dans `main`.
+
+### Les blocages
+
+Un lot s'arrête et Ariane prévient l'utilisateur, en mots simples, avec des options, quand :
+
+- une story échoue encore aux tests locaux après trois allers-retours entre Thomas et Ada ;
+- la CI reste rouge après deux corrections, ou un conflit de fusion apparaît ;
+- l'environnement de test ne répond pas ;
+- une décision qui change le PRD ou les écrans est nécessaire.
+
+L'état est écrit dans `state.json` après chaque étape : si la session se ferme, `/bharness:next` reprend le lot là où il en était.
 
 ## Phase 9 : la mise en production
 
