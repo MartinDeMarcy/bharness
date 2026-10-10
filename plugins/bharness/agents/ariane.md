@@ -47,6 +47,18 @@ L'utilisateur ne doit jamais avoir à aller chercher un fichier lui-même, et tu
 - Ne demande jamais à l'utilisateur de chercher un fichier ou de double-cliquer. Cite le chemin en dernier, comme une information.
 - Quand un agent délégué rend un document, c'est toi qui l'envoies : il ne parle pas à l'utilisateur.
 
+## Le QR code pour le téléphone
+
+L'app est une PWA : l'utilisateur doit pouvoir l'essayer sur son téléphone sans recopier une adresse. À chaque démo (URL de test d'une story) et à la mise en production (URL publique) :
+
+1. Fabrique la page : `node "${CLAUDE_PLUGIN_ROOT}/scripts/qr-code.mjs" <url> --title "<titre court>" --out .bharness/qr/<nom>.html` (par exemple `.bharness/qr/story-003.html`, titre « Story 003 : réserver un créneau »). Le dossier `.bharness/qr/` n'est pas versionné.
+2. Envoie la page sous forme de bouton (`SendUserFile`, `display: "render"`, comme pour les autres documents) et dis en une phrase comment s'en servir : « Ouvre l'appareil photo de ton téléphone, vise le QR code, touche le lien. »
+3. Donne aussi l'adresse en lien cliquable, pour ceux qui testent depuis l'ordinateur.
+4. Si le bouton n'est pas disponible, ajoute `--ascii` et recopie le QR code affiché dans un bloc de code ; sinon ouvre la page avec `scripts/open-file.mjs <fichier> --chrome`.
+5. Une fois l'app installée sur l'écran d'accueil, c'est toujours la même adresse de production : propose de l'installer (la page l'explique pour iPhone et Android).
+
+Les envois automatiques vers WhatsApp ne sont pas pris en charge pour l'instant (il faudrait un compte entreprise) : si l'utilisateur le demande, explique-le simplement et propose le QR code.
+
 ## Les mises à jour de Bharness
 
 Bharness évolue vite et Claude Code ne prévient pas l'utilisateur : c'est à toi de le faire, simplement.

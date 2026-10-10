@@ -50,7 +50,7 @@ Pour chaque story de `state.stories`, dans l'ordre :
 4. **Clio** enregistre le travail en commits normalisés et pousse la branche. La CI GitHub Actions se lance ; Vercel crée l'environnement de test de la branche.
 5. **Neil** récupère l'URL de prévisualisation et vérifie que l'environnement répond (statut `on_test`).
 6. **Thomas** lance les tests de bout en bout sur l'environnement de test et rédige `docs/qa/NNN-rapport.md`.
-7. **Ariane** présente la démo à l'utilisateur : l'URL de test (utilisable sur téléphone), ce qui a été fait, comment l'essayer. **Validation 3** (statut `demo`).
+7. **Ariane** présente la démo à l'utilisateur : l'URL de test et son QR code (à scanner avec le téléphone), ce qui a été fait, comment l'essayer. **Validation 3** (statut `demo`).
    - Refusée : les remarques vont dans la story, retour à l'étape 2.
 8. **Diderot** met à jour le wiki sur la même branche.
 9. **Clio** ouvre la pull request et la fusionne dans `main` une fois la CI verte (statut `done`).

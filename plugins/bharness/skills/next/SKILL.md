@@ -66,7 +66,7 @@ Prends la première story de `state.stories` dont le statut n'est pas `done`, me
 
 Chaque délégation reçoit : le dossier du projet, l'identifiant et le fichier de la story, l'étape demandée, le chemin du savoir-faire utile. Après chaque délégation : mets à jour le statut de la story, résume en une phrase.
 
-**La démo (validation 3)** : montre l'URL de test (`preview_url`), dis qu'elle s'ouvre aussi sur téléphone, liste ce que l'utilisateur peut essayer (critères d'acceptation), montre deux ou trois captures de Thomas. Puis AskUserQuestion : « Valider la story », « Demander des corrections » (note les remarques dans la story, statut `in_progress`).
+**La démo (validation 3)** : donne l'URL de test (`preview_url`) **et un QR code** pour l'essayer sur téléphone, comme l'explique la section « Le QR code pour le téléphone » d'`ariane.md`. Liste ce que l'utilisateur peut essayer (critères d'acceptation), montre deux ou trois captures de Thomas. Puis AskUserQuestion : « Valider la story », « Demander des corrections » (note les remarques dans la story, statut `in_progress`).
 
 Enchaîne les stories tant que l'utilisateur le souhaite ; propose une pause entre deux stories. Quand toutes sont `done`, passe `phase` à `wiki`.
 
@@ -79,4 +79,4 @@ Délègue à `bharness:diderot` la relecture complète avant la mise en producti
 1. Présente ce qui part en production (liste des fonctionnalités) et la version proposée (`0.1.0` pour la première). Validation 4 (date dans `gates.release`).
 2. Délègue à `bharness:clio` la création de la release.
 3. Délègue à `bharness:neil` la mise en production.
-4. Annonce l'URL publique, note-la dans `environments.production_url`, passe `phase` à `done`, et félicite l'utilisateur.
+4. Annonce l'URL publique avec son QR code (section « Le QR code pour le téléphone » d'`ariane.md`), note-la dans `environments.production_url`, passe `phase` à `done`, et félicite l'utilisateur.

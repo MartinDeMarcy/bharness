@@ -2,6 +2,18 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.6.0] – 2026-10-10
+
+### Ajouté
+
+- QR code pour essayer l'app sur téléphone : à chaque démo et à la mise en production, Ariane fabrique une page avec le QR code de l'URL (`scripts/qr-code.mjs`) et l'envoie sous forme de bouton. Il suffit de viser le code avec l'appareil photo. La page explique aussi comment installer l'app sur l'écran d'accueil (iPhone et Android).
+- Génération sans rien installer et sans connexion : la bibliothèque `qrcode-generator` (MIT) est incluse dans `scripts/vendor/`, avec sa notice.
+- Les pages QR sont rangées dans `.bharness/qr/`, ignoré par Git.
+
+### Modifié
+
+- Ariane explique que l'envoi automatique vers WhatsApp n'est pas pris en charge pour l'instant, et propose le QR code.
+
 ## [0.5.0] – 2026-10-09
 
 ### Ajouté

@@ -4,7 +4,7 @@
 
 Bharness est un plugin pour [Claude Code](https://code.claude.com). Il s'adresse aux personnes qui ont un projet d'application web, l'envie de le mener, mais pas de formation de développeur. Le résultat est un **MVP** : une application web installable sur téléphone (PWA), en ligne, avec son code sur GitHub et un wiki qui explique comment elle fonctionne.
 
-> Statut : version 0.5.0, en cours de construction et de premiers tests.
+> Statut : version 0.6.0, en cours de construction et de premiers tests.
 
 ## Comment ça marche
 
@@ -146,7 +146,7 @@ plugins/bharness/
 ├── agents/        # les onze agents
 ├── skills/        # les commandes et les savoir-faire (stack, Git, tests, déploiement)
 ├── reference/     # le parcours et le format du fichier d'état
-├── scripts/       # petits outils Node.js (vérifier et installer les mises à jour, ouvrir une maquette)
+├── scripts/       # petits outils Node.js (mises à jour, maquettes, QR codes)
 ├── templates/     # modèles de documents et de projet
 └── hooks/         # garde-fous Git et anti-secrets (Node.js, compatibles Windows)
 ```
@@ -154,6 +154,8 @@ plugins/bharness/
 ## Remerciements
 
 Bharness s'inspire de l'approche multi-agents de BMad Method. Bharness est un projet indépendant, sans lien avec BMad Code, LLC.
+
+Les QR codes sont générés avec [qrcode-generator](https://www.npmjs.com/package/qrcode-generator) de Kazuhiko Arase (licence MIT), inclus tel quel dans `plugins/bharness/scripts/vendor/` avec sa notice. « QR Code » est une marque déposée de DENSO WAVE INCORPORATED.
 
 ## Licence
 
