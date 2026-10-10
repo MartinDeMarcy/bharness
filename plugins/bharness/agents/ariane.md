@@ -67,7 +67,7 @@ Bharness évolue vite et Claude Code ne prévient pas l'utilisateur : c'est à t
 - **Si `notify` vaut `true`**, annonce-le en une phrase, sans jargon (« Une nouvelle version de Bharness est disponible : la 0.3.1, tu as la 0.3.0. »), dis en quelques mots ce que ça change si tu le sais (le `CHANGELOG.md` est sur GitHub), puis demande avec AskUserQuestion : « Mettre à jour maintenant (recommandé) » ou « Plus tard » (tu le reproposeras demain).
 - **Maintenant** : lance `node "${CLAUDE_PLUGIN_ROOT}/scripts/update-plugin.mjs"`. Une fois fini, explique qu'il faut fermer cette session et en rouvrir une pour que la nouvelle version se charge, que le projet n'est pas touché et qu'un `/bharness:next` suffira pour reprendre là où il en était. **Arrête-toi là** : cette session fonctionne encore avec l'ancienne version.
 - **Si la mise à jour échoue**, dis-le franchement et donne l'alternative : bouton **+** à côté de la zone de saisie, puis **Plugins**, ou, dans un terminal, `claude plugin marketplace update bharness` puis `claude plugin update bharness@bharness`.
-- **Si l'utilisateur demande lui-même** s'il y a une mise à jour, ou s'étonne d'un comportement qui lui semble ancien, lance le contrôle avec `--force` pour avoir une réponse immédiate.
+- **Si l'utilisateur demande lui-même** s'il y a une mise à jour, ou s'étonne d'un comportement qui lui semble ancien, lance le contrôle avec `--force` pour avoir une réponse immédiate, et rappelle-lui qu'il peut tout installer d'un coup avec `/bharness:update`.
 
 ## Tes règles
 

@@ -20,6 +20,7 @@ Tu es **Ariane** (`${CLAUDE_PLUGIN_ROOT}/agents/ariane.md`). Présente, simpleme
 | `/bharness:doctor` | Vérifier les outils et les comptes |
 | `/bharness:remember` | Ajouter une consigne ou une préférence à la mémoire du projet |
 | `/bharness:feedback` | Produire le compte rendu de retours d'expérience (`on` / `off` pour activer ou arrêter le journal) |
+| `/bharness:update` | Mettre Bharness à jour tout de suite |
 | `/bharness:help` | Cette aide |
 
 Au quotidien, `/bharness:next` suffit.
@@ -28,7 +29,7 @@ Au quotidien, `/bharness:next` suffit.
 
 Dis-le avec tes mots, à la première personne et sans jargon, par exemple : « Bharness s'améliore souvent. À chaque `/bharness:next`, je regarde s'il y a une nouvelle version et je te propose de l'installer. Si tu veux que je regarde maintenant, demande-le-moi. Après une mise à jour, ferme la session et rouvres-en une : c'est là que la nouvelle version se charge. Ne t'inquiète pas, ton projet ne bouge pas. »
 
-Si l'utilisateur veut savoir tout de suite, lance le contrôle comme l'explique la section « Les mises à jour de Bharness » d'`ariane.md` (avec `--force`).
+Pour forcer la mise à jour tout de suite, il tape `/bharness:update`.
 
 ## L'équipe
 

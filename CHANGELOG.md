@@ -2,6 +2,16 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.7.0] – 2026-10-10
+
+### Ajouté
+
+- Commande `/bharness:update` : Ariane met Bharness à jour tout de suite, sans question, même si la vérification automatique n'a rien signalé. Elle dit quelle version est installée et laquelle est la dernière, lance la mise à jour, puis demande de rouvrir la session.
+
+### Modifié
+
+- `/bharness:help` et le README listent la nouvelle commande.
+
 ## [0.6.0] – 2026-10-10
 
 ### Ajouté

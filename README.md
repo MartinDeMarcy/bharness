@@ -4,7 +4,7 @@
 
 Bharness est un plugin pour [Claude Code](https://code.claude.com). Il s'adresse aux personnes qui ont un projet d'application web, l'envie de le mener, mais pas de formation de développeur. Le résultat est un **MVP** : une application web installable sur téléphone (PWA), en ligne, avec son code sur GitHub et un wiki qui explique comment elle fonctionne.
 
-> Statut : version 0.6.0, en cours de construction et de premiers tests.
+> Statut : version 0.7.0, en cours de construction et de premiers tests.
 
 ## Comment ça marche
 
@@ -66,9 +66,15 @@ Puis lance :
 
 Bharness s'améliore régulièrement, et Claude Code ne prévient pas quand une nouvelle version sort. C'est donc Ariane qui s'en charge : quand tu lances `/bharness:next`, elle vérifie (au plus une fois par jour) s'il y a du nouveau. Si c'est le cas, elle te le dit et te propose de mettre à jour tout de suite ou plus tard. Si tu acceptes, elle installe la nouvelle version, puis tu fermes ta session et tu en rouvres une : c'est au démarrage que la nouvelle version est chargée. Ton projet n'est pas touché, tu retrouves tout comme tu l'avais laissé.
 
-Pour demander toi-même, dis simplement à Ariane : « Y a-t-il une mise à jour ? »
+Pour forcer la mise à jour tout de suite, sans attendre cette vérification, tape :
 
-À la main, au cas où : dans l'application de bureau, bouton **+** à côté de la zone de saisie, puis **Plugins** ; ou, dans un terminal :
+```text
+/bharness:update
+```
+
+Ariane installe la dernière version, puis tu fermes ta session et tu en rouvres une.
+
+Si la commande ne marche pas, à la main : dans l'application de bureau, bouton **+** à côté de la zone de saisie, puis **Plugins** ; ou, dans un terminal :
 
 ```bash
 claude plugin marketplace update bharness
@@ -87,6 +93,7 @@ claude plugin update bharness@bharness
 | `/bharness:doctor` | Vérifier les outils et les comptes |
 | `/bharness:remember` | Ajouter une consigne ou une préférence à la mémoire du projet |
 | `/bharness:feedback` | Produire le compte rendu de retours d'expérience |
+| `/bharness:update` | Mettre Bharness à jour tout de suite |
 | `/bharness:help` | Revoir les commandes et l'équipe |
 
 Au quotidien, `/bharness:next` suffit.
