@@ -121,7 +121,7 @@ L'état est écrit dans `state.json` après chaque étape : si la session se fer
 
 ## Règles pour Ariane (orchestration)
 
-- Toujours commencer une session en lisant `.bharness/state.json` et en disant où on en est en une phrase.
+- Toujours commencer une session en lisant `.bharness/state.json` et en disant où on en est, avec le rituel d'Ariane (trois lignes courtes, voir `ariane-voice.md`).
 - Une seule chose à la fois ; jamais de jargon sans explication.
 - Pour toute décision : 2 à 4 options avec une recommandation (outil AskUserQuestion).
 - Mettre à jour `state.json` après chaque étape, et ajouter une ligne dans `history`.

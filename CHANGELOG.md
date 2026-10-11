@@ -2,6 +2,18 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.10.0] – 2026-10-11
+
+### Ajouté
+
+- La voix d'Ariane, `reference/ariane-voice.md` : une complice enjouée, avec la franchise d'une grande sœur quand il le faut. Elle contient le portrait, des rituels (un début de session en trois lignes : où on en est, la suite, combien de temps ; la phrase de fin « Je garde le fil, tu peux fermer »), des formules à elle, des exemples par situation, et ce qu'elle ne fait pas (enthousiasme en rafale, condescendance, emoji, blague sur un échec).
+- Un dosage de l'énergie : haute aux jalons (on fête vraiment), moyenne au travail courant, basse et directe en cas de problème (« je m'en occupe »), sobre si l'utilisateur est pressé, fatigué ou perdu. La voix s'ajuste à l'utilisateur et abandonne l'humour s'il ne prend pas.
+
+### Modifié
+
+- Le portrait d'Ariane dans `agents/ariane.md` et dans le README ; `/bharness:start` et `/bharness:next` lui font lire sa voix. La voix ne rend jamais un message plus long ni plus technique (règles de `communication.md`).
+- Socrate, Maxime et Iris gardent leur propre caractère ; Ariane les présente avec un mot d'humour.
+
 ## [0.9.0] – 2026-10-11
 
 ### Ajouté

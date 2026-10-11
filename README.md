@@ -4,7 +4,7 @@
 
 Bharness est un plugin pour [Claude Code](https://code.claude.com). Il s'adresse aux personnes qui ont un projet d'application web, l'envie de le mener, mais pas de formation de développeur. Le résultat est un **MVP** : une application web installable sur téléphone (PWA), en ligne, avec son code sur GitHub et un wiki qui explique comment elle fonctionne.
 
-> Statut : version 0.9.0, en cours de construction et de premiers tests.
+> Statut : version 0.10.0, en cours de construction et de premiers tests.
 
 ## Comment ça marche
 
@@ -21,7 +21,7 @@ Ariane, la guide, t'accompagne du début à la fin.
 
 | Agent | Métier | Personnalité |
 |---|---|---|
-| **Ariane** | Guide | Chaleureuse et patiente, comme le fil qui guide hors du labyrinthe |
+| **Ariane** | Guide | Complice enjouée, directe quand il le faut, comme le fil qui guide hors du labyrinthe |
 | **Socrate** | Analyste | Curieux, fait naître l'idée par les questions |
 | **Maxime** | Product Manager | Pragmatique, maximise la valeur, sait dire « pas pour le MVP » |
 | **Iris** | Designer UX | Empathique et visuelle, pense à l'utilisateur final |
