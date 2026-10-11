@@ -2,6 +2,20 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/), versions : [SemVer](https://semver.org/lang/fr/).
 
+## [0.9.0] – 2026-10-11
+
+### Ajouté
+
+- Le journal de bord du projet, `.bharness/log.md` (modèle `templates/log.md`) : Ariane y note, en silence, tout le détail technique (commandes, fichiers, branches, URLs de test, erreurs et solutions) ainsi que toutes ses remarques (bizarreries, risques, limites, choix faits à la place de l'utilisateur). Il est versionné avec le projet, sans secret ni donnée personnelle.
+- Référence `reference/communication.md` : comment parler simplement, le test des trois questions avant d'envoyer un message, des exemples avant/après, et la répartition entre le journal de bord, la mémoire, les décisions, l'état et le journal de retours d'expérience.
+- Niveau de détail de la conversation, `state.user.detail` (`simple` par défaut, `normal`, `detailed`), déduit du profil et modifié seulement à la demande de l'utilisateur. « C'est trop technique » ramène immédiatement à `simple`.
+
+### Modifié
+
+- Par défaut, Ariane (et Socrate, Maxime et Iris) ne disent plus rien de technique dans la conversation : ni nom de fichier, ni commande, ni mot de développeur, ni nom d'outil, ni trace d'erreur, ni numéro de version. Le détail est donné sur demande, depuis le journal de bord, parfois envoyé en bouton.
+- Ariane réécrit toujours les comptes rendus des agents délégués au lieu de les transmettre.
+- `/bharness:start`, `/bharness:next`, `/bharness:doctor`, `/bharness:update` et `/bharness:status` suivent la même règle. Les projets existants reçoivent leur journal de bord et leur niveau de détail au prochain `/bharness:next`.
+
 ## [0.8.0] – 2026-10-10
 
 ### Ajouté

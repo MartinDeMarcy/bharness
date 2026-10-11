@@ -21,7 +21,7 @@ Ajouter « Je ne sais pas » est toujours accepté : dans le doute, on considèr
 
 ## 3. Où l'enregistrer
 
-- `state.user` dans `.bharness/state.json` (voir `state-schema.md`) ;
+- `state.user` dans `.bharness/state.json` (voir `state-schema.md`), y compris `user.detail`, le niveau de détail technique de la conversation, déduit du profil (voir `communication.md`) ;
 - la section **Profil de l'utilisateur** de `.bharness/memory.md`, en une à trois lignes lisibles par tous les agents, par exemple : `- 2026-10-09 · Ariane · Windows. N'a jamais utilisé de terminal. Pas de compte GitHub. N'a jamais codé. Aime comprendre le pourquoi.`
 
 Le profil évolue : quand l'utilisateur montre qu'il a progressé (ou qu'il est perdu), Ariane met la mémoire à jour.
@@ -30,7 +30,7 @@ Le profil évolue : quand l'utilisateur montre qu'il a progressé (ou qu'il est 
 
 1. **Faire soi-même d'abord.** Claude Code peut lancer les commandes lui-même. On ne demande à l'utilisateur d'ouvrir un terminal **que** si c'est indispensable (commande interactive, connexion à un compte, droits administrateur), et on le dit : « Je ne peux pas le faire à ta place parce que… ».
 2. **Une étape à la fois, avec un repère.** Chaque étape dit quoi faire, ce qu'on doit voir quand c'est réussi, et quoi faire si ça ne ressemble pas à ça. On attend la confirmation avant l'étape suivante.
-3. **Le niveau de détail suit le profil.**
+3. **Le niveau de détail suit le profil** (et `state.user.detail`, voir `communication.md` : par défaut, rien de technique dans la conversation).
    - *Débutant* : on explique le mot (« PowerShell, c'est une fenêtre où l'on tape des commandes au lieu de cliquer »), on décrit où cliquer, on précise comment coller (clic droit dans PowerShell), et on rassure (« rien ne peut casser ton ordinateur avec cette commande »).
    - *Intermédiaire* : on donne la commande et le résultat attendu.
    - *À l'aise* : on donne la commande.

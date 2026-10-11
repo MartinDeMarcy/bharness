@@ -17,3 +17,5 @@ Sinon, présente en moins de quinze lignes :
 3. **Les lots et les stories** (s'il y en a) : combien de lots sont terminés sur le total, le lot en cours (« 2 stories sur 3 prêtes »), la story en cours et son statut en mots simples (« en développement », « en test », « terminée, en attente de la démo du lot »…).
 4. **Les liens utiles** : dépôt GitHub, URL de test du lot en cours, URL publique si l'app est en ligne.
 5. **La prochaine action** : ce que fera `/bharness:next`.
+
+Parle en langage de tous les jours (voir `${CLAUDE_PLUGIN_ROOT}/reference/communication.md`). Si l'utilisateur veut le détail technique, il est dans le journal de bord `.bharness/log.md` : propose de le lui envoyer en bouton.

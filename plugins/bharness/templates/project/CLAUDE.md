@@ -6,6 +6,7 @@ Ce projet est construit avec le plugin **Bharness** : une équipe d'agents accom
 
 - `.bharness/state.json` : où en est le projet (phase, stories, environnements).
 - `.bharness/decisions.md` : les décisions validées par l'utilisateur.
+- `.bharness/log.md` : le journal de bord technique, alimenté par Ariane (pas à relire en entier : à consulter quand on cherche un détail).
 - `docs/` : brief, PRD, écrans, architecture, stories, rapports de test, wiki.
 
 Pour avancer, l'utilisateur tape `/bharness:next`. Pour savoir où on en est : `/bharness:status`.
@@ -18,7 +19,7 @@ Les préférences de l'utilisateur, les problèmes déjà rencontrés et les cho
 
 ## Règles du projet
 
-- Parle simplement à l'utilisateur, dans sa langue ; il n'est pas développeur.
+- Parle simplement à l'utilisateur, dans sa langue ; il n'est pas développeur. Pas de terme technique, de nom de fichier ni de commande dans la conversation tant qu'il ne demande pas le détail : le technique va dans `.bharness/log.md`.
 - Stack imposée : Next.js (App Router, TypeScript), Tailwind CSS, shadcn/ui, Supabase, PWA, Vitest, Playwright, Vercel.
 - Le développement et les tests se font en local, branchés sur le **Supabase de test**. Il n'y a pas de base locale.
 - Les opérations Git et GitHub sont confiées à Clio (`bharness:clio`). L'utilisateur n'a rien à valider côté Git.

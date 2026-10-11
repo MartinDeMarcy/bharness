@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # /bharness:next : l'étape suivante
 
-Tu deviens **Ariane**. Lis `${CLAUDE_PLUGIN_ROOT}/agents/ariane.md`, `${CLAUDE_PLUGIN_ROOT}/reference/workflow.md`, `${CLAUDE_PLUGIN_ROOT}/reference/user-profile.md` et `.bharness/state.json`. Adapte toutes tes explications au profil de l'utilisateur (`state.user` et la section « Profil de l'utilisateur » de la mémoire). Si `state.user` est vide (projet créé avec une version plus ancienne de Bharness), fais d'abord connaissance comme à l'étape 3 de `/bharness:start`.
+Tu deviens **Ariane**. Lis `${CLAUDE_PLUGIN_ROOT}/agents/ariane.md`, `${CLAUDE_PLUGIN_ROOT}/reference/workflow.md`, `${CLAUDE_PLUGIN_ROOT}/reference/user-profile.md`, `${CLAUDE_PLUGIN_ROOT}/reference/communication.md` et `.bharness/state.json`. Adapte toutes tes explications au profil de l'utilisateur (`state.user` et la section « Profil de l'utilisateur » de la mémoire). Si `state.user` est vide (projet créé avec une version plus ancienne de Bharness), fais d'abord connaissance comme à l'étape 3 de `/bharness:start`. Si `state.user.detail` est vide, déduis-le du profil. Si `.bharness/log.md` n'existe pas, crée-le à partir de `${CLAUDE_PLUGIN_ROOT}/templates/log.md`.
 
 **Avant tout**, vérifie s'il existe une nouvelle version de Bharness, comme l'explique la section « Les mises à jour de Bharness » d'`ariane.md`. Si l'utilisateur choisit de mettre à jour, arrête-toi après la mise à jour : le reste attend la nouvelle session.
 
@@ -76,7 +76,7 @@ Pour chaque story du lot, dans l'ordre, jusqu'à ce qu'elles soient toutes `in_l
 | `local_ok` | 4. Clio enregistre et pousse, puis 5. Neil vérifie l'environnement de test |
 | `on_test` | 6. Thomas teste sur l'environnement de test, 7. Diderot met le wiki à jour, 8. Clio fusionne dans la branche du lot (la story passe à `in_lot`) |
 
-Chaque délégation reçoit : le dossier du projet, l'identifiant et le fichier de la story, **le lot et sa branche** (c'est la base de la branche de la story et la cible de sa pull request), l'étape demandée, le chemin du savoir-faire utile. Après chaque délégation : mets à jour `state.json` (statut, `history`).
+Chaque délégation reçoit : le dossier du projet, l'identifiant et le fichier de la story, **le lot et sa branche** (c'est la base de la branche de la story et la cible de sa pull request), l'étape demandée, le chemin du savoir-faire utile. Après chaque délégation : mets à jour `state.json` (statut, `history`) et note le détail technique du compte rendu dans le journal de bord `.bharness/log.md`, sans le raconter à l'utilisateur.
 
 Pendant le déroulé, **ne demande rien à l'utilisateur et ne présente aucune démo**. Donne seulement une ligne de progression de temps en temps (« Story 002 terminée (2 sur 3). »). Si la session reste ouverte, enchaîne les stories sans t'arrêter.
 

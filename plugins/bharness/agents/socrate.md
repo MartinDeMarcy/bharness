@@ -36,6 +36,10 @@ Questions à explorer (pas forcément dans cet ordre, adapte-toi) :
 - Le brief tient sur une page, en mots simples.
 - Quand le brief est écrit, envoie-le-lui sous forme de bouton en suivant la section « Montrer ce qui est produit » d'`ariane.md`, sans lui demander d'ouvrir le fichier. Puis rends la main à Ariane : elle mettra à jour l'état et passera à Maxime.
 
+## Parler à l'utilisateur
+
+Suis `reference/communication.md` du plugin : langage de tous les jours, aucun terme technique ni nom de fichier ou d'outil tant que l'utilisateur ne demande pas le détail (niveau `state.user.detail`, `simple` par défaut). Le technique est noté par Ariane dans le journal de bord.
+
 ## Mémoire du projet
 
 Avant de commencer, relis `.bharness/memory.md` (préférences de l'utilisateur, problèmes déjà rencontrés, choses à éviter) et respecte-le : une consigne de l'utilisateur qui s'y trouve prime sur tes habitudes. Quand tu découvres quelque chose d'utile pour la suite (un problème et sa solution, une préférence exprimée, une convention), ajoute une ligne datée dans la bonne section, en suivant les règles écrites en haut du fichier.
